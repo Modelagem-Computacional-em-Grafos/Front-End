@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:grafos/components/form_field_app.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class FarmGraphScreen extends StatefulWidget {
+  const FarmGraphScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<FarmGraphScreen> createState() => _FarmGraphScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _FarmGraphScreenState extends State<FarmGraphScreen> {
   List<List<String>> rotas = []; // Lista de rotas simulada
   Map<String, Color> rotaColors = {}; // Mapeamento de rotas para cores
   Map<String, int> rotaOrder = {}; // Mapeamento de posição para ordem na rota
@@ -26,8 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ['A1', 'B2', 'C3'],
       ['D4', 'E5', 'F6'],
       ['A8', 'B1', 'H7', 'G3'],
+      ['A7', 'B7', 'H7', 'G7', 'D7'],
+      ['A2', 'B3', 'H3', 'G6', 'D8'],
+      ['A3', 'B4', 'H6', 'G8', 'E8'],
     ];
-
     // Gerando cores distintas para cada rota e numerando as posições
     rotaColors = generateRotaColors(rotas.length);
     rotaOrder = generateRotaOrder(rotas);
@@ -37,7 +38,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Função para gerar cores para cada rota
   Map<String, Color> generateRotaColors(int numberOfRoutes) {
-    List<Color> colors = [Colors.red, Colors.blue, Colors.green, Colors.orange];
+    List<Color> colors = [
+      Colors.red,
+      Colors.blue,
+      Colors.green,
+      Colors.orange,
+      Colors.purple,
+      Colors.white,
+      Colors.yellow,
+      Colors.pink,
+    ];
     Map<String, Color> rotaColors = {};
 
     for (int i = 0; i < numberOfRoutes; i++) {
@@ -83,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     right: 110,
                     bottom: 35,
                     child: GridView.builder(
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 8,
@@ -105,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Center(
                             child: Text(
                               number != null ? '$number' : '',
-                              style: TextStyle(color: Colors.black),
+                              style: const TextStyle(color: Colors.black),
                             ),
                           ),
                         );
@@ -114,8 +124,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
-              const FormFieldApp(),
             ],
           ),
         ),

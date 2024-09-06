@@ -51,9 +51,17 @@ class _FormFieldAppState extends State<FormFieldApp> {
       children: [
         const Text(
           'A bateria precisa ter um tamanho máximo de 29000 mAh',
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.blueGrey,
+          ),
         ),
         const Text(
           'E um tamanho minimo de 10000 mAh',
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.blueGrey,
+          ),
         ),
         Form(
           key: _formKey,
@@ -70,9 +78,17 @@ class _FormFieldAppState extends State<FormFieldApp> {
               const SizedBox(height: 20),
               const Text(
                 'A quantidade de insumo máximo é de 30 Litros',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.blueGrey,
+                ),
               ),
               const Text(
                 'A quantidade mínima de insumo é de XXXXXXX Litros',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.blueGrey,
+                ),
               ),
               TextFormField(
                 keyboardType: TextInputType.number,
@@ -82,6 +98,7 @@ class _FormFieldAppState extends State<FormFieldApp> {
                   hintText: '(Em Litros) Quanto tem cada tanque de insumo?',
                 ),
               ),
+              const SizedBox(height: 80),
               ElevatedButton(
                 onPressed: () {},
                 child: const Text('Enviar Dados'),
